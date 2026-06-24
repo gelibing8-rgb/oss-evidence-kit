@@ -1,0 +1,35 @@
+{
+  "name": "oss-evidence-kit",
+  "version": "0.1.0",
+  "description": "Generate verifiable public evidence reports for open-source maintainers.",
+  "type": "module",
+  "bin": {
+    "oss-evidence-kit": "./bin/oss-evidence-kit.js"
+  },
+  "scripts": {
+    "check": "node --check bin/oss-evidence-kit.js && node --check src/cli.js && node --check src/github.js && node --check src/index.js && node --check src/local-git.js && node --check src/report.js && node --test tests/*.test.js",
+    "report": "node bin/oss-evidence-kit.js report --repo gelibing8-rgb/oss-evidence-kit --out docs/reviewer-evidence.md"
+  },
+  "keywords": [
+    "open-source",
+    "maintainer",
+    "github",
+    "evidence",
+    "grant",
+    "codex",
+    "oss"
+  ],
+  "author": "Gelibing",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gelibing8-rgb/oss-evidence-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gelibing8-rgb/oss-evidence-kit/issues"
+  },
+  "homepage": "https://gelibing8-rgb.github.io/oss-evidence-kit/"
+}

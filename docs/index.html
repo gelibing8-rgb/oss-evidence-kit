@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OSS Evidence Kit</title>
+    <meta name="description" content="A zero-dependency CLI that generates verifiable evidence reports for open-source maintainers.">
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #101418;
+        --panel: #171d23;
+        --text: #edf2f7;
+        --muted: #aab7c4;
+        --line: #2d3742;
+        --accent: #47d18c;
+        --accent-2: #67b7ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      main {
+        width: min(1040px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 72px 0 56px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+        gap: 36px;
+        align-items: center;
+      }
+
+      h1 {
+        margin: 0 0 18px;
+        font-size: clamp(2.4rem, 6vw, 5.1rem);
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .button {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        min-height: 42px;
+        padding: 0 16px;
+        text-decoration: none;
+        font-weight: 650;
+      }
+
+      .primary {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #07100b;
+      }
+
+      .terminal {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        padding: 22px;
+        min-height: 310px;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+      }
+
+      .dots {
+        display: flex;
+        gap: 7px;
+        margin-bottom: 22px;
+      }
+
+      .dots span {
+        width: 11px;
+        height: 11px;
+        border-radius: 999px;
+        background: var(--line);
+      }
+
+      code,
+      pre {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      }
+
+      pre {
+        margin: 0;
+        white-space: pre-wrap;
+        color: #d8e2ec;
+        line-height: 1.65;
+      }
+
+      .accent {
+        color: var(--accent);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 52px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 18px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .card h2 {
+        margin: 0 0 10px;
+        font-size: 1rem;
+      }
+
+      .card p {
+        font-size: 0.94rem;
+      }
+
+      @media (max-width: 820px) {
+        main {
+          padding-top: 44px;
+        }
+
+        .hero,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div>
+          <h1>OSS Evidence Kit</h1>
+          <p>Generate concise, verifiable public evidence reports for open-source maintainers applying for grants, credits, sponsorships, and maintainer-support programs.</p>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/gelibing8-rgb/oss-evidence-kit">GitHub</a>
+            <a class="button" href="https://github.com/gelibing8-rgb/oss-evidence-kit/blob/main/docs/codex-for-oss-application.md">Application Notes</a>
+          </div>
+        </div>
+        <div class="terminal" aria-label="Command example">
+          <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <pre><span class="accent">$</span> oss-evidence-kit report \
+  --repo owner/name \
+  --out docs/reviewer-evidence.md
+
+Collects public GitHub evidence:
+  releases
+  issues and pull requests
+  contributors
+  license and community files
+  stars, forks, watchers
+
+Outputs reviewer-friendly Markdown.</pre>
+        </div>
+      </section>
+
+      <section class="grid" aria-label="Project features">
+        <article class="card">
+          <h2>Public by default</h2>
+          <p>Uses public GitHub metadata and avoids private repository scraping or hidden claims.</p>
+        </article>
+        <article class="card">
+          <h2>Reviewer friendly</h2>
+          <p>Turns scattered maintenance signals into one Markdown report that can be checked quickly.</p>
+        </article>
+        <article class="card">
+          <h2>Abuse aware</h2>
+          <p>Explicitly rejects fake stars, star swaps, fabricated users, and unverifiable impact claims.</p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
