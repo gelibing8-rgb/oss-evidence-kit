@@ -115,7 +115,8 @@ export function evaluateEvidence(evidence) {
   const points = items.filter((item) => item.ok).length * 10;
   const maxPoints = items.length * 10;
   let label = "Early";
-  if (points >= 50) {
+  const adoptionReady = items.find((item) => item.key === "adoption")?.ok;
+  if (points >= 50 && adoptionReady) {
     label = "Strong";
   } else if (points >= 30) {
     label = "Developing";
@@ -189,14 +190,10 @@ function formatDate(value) {
 }
 
 function formatDateTime(value) {
-  return new Intl.DateTimeFormat("en-CA", {
-    timeZone: "UTC",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit"
-  }).format(new Date(value));
+  const date = new Date(value);
+  const hours = String(date.getUTCHours()).padStart(2, "0");
+  const minutes = String(date.getUTCMinutes()).padStart(2, "0");
+  return `${formatDate(value)} ${hours}:${minutes} UTC`;
 }
 
 function daysSince(value) {
