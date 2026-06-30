@@ -3,7 +3,7 @@ import { dirname, resolve } from "node:path";
 
 import { fetchRepositoryEvidence, parseRepoSlug } from "./github.js";
 import { detectGitRemoteSlug } from "./local-git.js";
-import { buildMarkdownReport } from "./report.js";
+import { buildJsonReport, buildMarkdownReport } from "./report.js";
 
 const HELP = `oss-evidence-kit
 
@@ -15,6 +15,7 @@ Usage:
 Options:
   --repo <owner/name|url>  Public GitHub repository. Defaults to remote.origin.url.
   --out <path>            Write markdown report to this file. Defaults to stdout.
+  --format <markdown|json> Output format. Defaults to markdown.
   --title <text>          Override report title.
   --help                  Show this help.
 `;
@@ -41,25 +42,26 @@ export async function runCli(argv, options = {}) {
     fetchImpl: options.fetchImpl,
     token: options.token
   });
-  const markdown = buildMarkdownReport(evidence, {
-    title: parsed.title
-  });
+  const output = parsed.format === "json"
+    ? buildJsonReport(evidence)
+    : buildMarkdownReport(evidence, { title: parsed.title });
 
   if (parsed.out) {
     const outputPath = resolve(parsed.out);
     await mkdir(dirname(outputPath), { recursive: true });
-    await writeFile(outputPath, markdown, "utf8");
+    await writeFile(outputPath, output, "utf8");
     options.stdout?.write(`Wrote ${outputPath}\n`);
     return { ok: true, out: outputPath };
   }
 
-  options.stdout?.write(markdown);
+  options.stdout?.write(output);
   return { ok: true };
 }
 
 export function parseArgs(argv) {
   const parsed = {
     command: argv[0],
+    format: "markdown",
     help: false,
     out: null,
     repo: null,
@@ -80,6 +82,9 @@ export function parseArgs(argv) {
     } else if (item === "--out") {
       parsed.out = requireValue(argv, index, "--out");
       index += 1;
+    } else if (item === "--format") {
+      parsed.format = normalizeFormat(requireValue(argv, index, "--format"));
+      index += 1;
     } else if (item === "--title") {
       parsed.title = requireValue(argv, index, "--title");
       index += 1;
@@ -97,4 +102,11 @@ function requireValue(argv, index, name) {
     throw new Error(`${name} requires a value.`);
   }
   return value;
+}
+
+function normalizeFormat(value) {
+  if (value === "markdown" || value === "json") {
+    return value;
+  }
+  throw new Error("--format must be markdown or json.");
 }

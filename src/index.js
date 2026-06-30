@@ -4,4 +4,4 @@ export {
   parseRepoSlug,
   toRepositoryUrl
 } from "./github.js";
-export { buildMarkdownReport, evaluateEvidence } from "./report.js";
+export { buildJsonReport, buildMarkdownReport, evaluateEvidence } from "./report.js";

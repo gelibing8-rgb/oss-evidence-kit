@@ -71,6 +71,10 @@ export function buildMarkdownReport(evidence, options = {}) {
   ].join("\n");
 }
 
+export function buildJsonReport(evidence) {
+  return `${JSON.stringify(evidence, null, 2)}\n`;
+}
+
 export function evaluateEvidence(evidence) {
   const repo = evidence.repository;
   const items = [

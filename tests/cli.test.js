@@ -10,10 +10,13 @@ test("parseArgs parses report options", () => {
     "owner/project",
     "--out",
     "docs/report.md",
+    "--format",
+    "json",
     "--title",
     "Custom"
   ]), {
     command: "report",
+    format: "json",
     help: false,
     out: "docs/report.md",
     repo: "owner/project",
@@ -24,4 +27,8 @@ test("parseArgs parses report options", () => {
 test("parseArgs handles help", () => {
   const parsed = parseArgs(["--help"]);
   assert.equal(parsed.help, true);
+});
+
+test("parseArgs rejects unsupported formats", () => {
+  assert.throws(() => parseArgs(["report", "--format", "xml"]), /markdown or json/);
 });

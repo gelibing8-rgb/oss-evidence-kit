@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { buildMarkdownReport, evaluateEvidence } from "../src/report.js";
+import { buildJsonReport, buildMarkdownReport, evaluateEvidence } from "../src/report.js";
 
 const sample = {
   collectedAt: "2026-06-24T00:00:00.000Z",
@@ -94,4 +94,10 @@ test("buildMarkdownReport includes core public evidence", () => {
   assert.match(markdown, /Stars/);
   assert.match(markdown, /Recent Releases/);
   assert.match(markdown, /Recommended Next Evidence/);
+});
+
+test("buildJsonReport returns parseable evidence", () => {
+  const parsed = JSON.parse(buildJsonReport(sample));
+  assert.equal(parsed.repository.fullName, "owner/project");
+  assert.equal(parsed.releases[0].tag, "v0.1.0");
 });

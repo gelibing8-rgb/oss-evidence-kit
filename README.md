@@ -48,6 +48,12 @@ Generate a report for any public GitHub repository:
 oss-evidence-kit report --repo openai/openai-node --out evidence.md
 ```
 
+Generate machine-readable JSON:
+
+```bash
+oss-evidence-kit report --repo openai/openai-node --format json --out evidence.json
+```
+
 From inside a Git repository, omit `--repo` and the CLI will use `remote.origin.url`:
 
 ```bash
@@ -72,6 +78,8 @@ The generated report includes:
 4. recent issues and pull requests;
 5. a simple readiness snapshot;
 6. recommended next evidence.
+
+Markdown is the default output format. Use `--format json` when a workflow, dashboard, or GitHub Action needs structured evidence.
 
 See [example report](examples/sample-report.md).
 
