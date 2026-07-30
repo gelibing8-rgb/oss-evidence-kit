@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1 - 2026-07-30
+
+- Added a manual GitHub Action workflow for regenerating reviewer evidence.
+- Documented token permissions and review boundaries for action-based reporting.
+
 ## 0.2.0 - 2026-06-30
 
 - Added `--format json` for machine-readable evidence output.

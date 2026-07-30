@@ -1,0 +1,30 @@
+name: Evidence Report
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate report
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node bin/oss-evidence-kit.js report --repo ${{ github.repository }} --out docs/reviewer-evidence.md
+
+      - name: Commit report if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Refresh reviewer evidence
+          file_pattern: docs/reviewer-evidence.md

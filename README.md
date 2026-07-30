@@ -83,6 +83,10 @@ Markdown is the default output format. Use `--format json` when a workflow, dash
 
 See [example report](examples/sample-report.md).
 
+## GitHub Action
+
+Use the manual GitHub Action example to regenerate reviewer evidence from a repository workflow. See [GitHub Action usage](docs/github-action.md).
+
 ## Project Principles
 
 1. Public evidence only by default.
