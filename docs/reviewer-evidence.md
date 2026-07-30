@@ -1,6 +1,6 @@
 # Open Source Evidence Report: gelibing8-rgb/oss-evidence-kit
 
-Generated at: 2026-06-30 01:44 UTC
+Generated at: 2026-07-30 08:59 UTC
 
 > This report summarizes public GitHub evidence. It is not an official score, endorsement, or guarantee of approval for any grant, credit, or maintainer-support program.
 
@@ -16,7 +16,7 @@ Generated at: 2026-06-30 01:44 UTC
 | Default branch | main |
 | Topics | `codex`, `evidence`, `github`, `grants`, `maintainer-tools`, `open-source`, `oss` |
 | Created | 2026-06-24 |
-| Last pushed | 2026-06-30 |
+| Last pushed | 2026-07-30 |
 
 ## Public Signals
 
@@ -25,8 +25,8 @@ Generated at: 2026-06-30 01:44 UTC
 | Stars | 1 |
 | Forks | 0 |
 | Watchers | 0 |
-| Open issues | 2 |
-| Sampled issues | 3 (1 closed) |
+| Open issues | 1 |
+| Sampled issues | 3 (2 closed) |
 | Sampled pull requests | 0 (0 closed) |
 | Contributors | 1 |
 | Community health | 100% |
@@ -38,12 +38,13 @@ Overall readiness: **Developing** (50/60)
 - [x] Public repository: publicly reviewable
 - [x] Open-source license: MIT detected
 - [x] Recent maintenance: 0 days since last push
-- [x] Release history: 2 sampled releases
+- [x] Release history: 3 sampled releases
 - [x] Issue or PR activity: 3 issues and 0 pull requests sampled
 - [ ] External adoption signal: 1 stars and 0 forks
 
 ## Recent Releases
 
+- [v0.2.1](https://github.com/gelibing8-rgb/oss-evidence-kit/releases/tag/v0.2.1) (`v0.2.1`, 2026-07-30)
 - [v0.2.0](https://github.com/gelibing8-rgb/oss-evidence-kit/releases/tag/v0.2.0) (`v0.2.0`, 2026-06-30)
 - [v0.1.0](https://github.com/gelibing8-rgb/oss-evidence-kit/releases/tag/v0.1.0) (`v0.1.0`, 2026-06-24)
 
@@ -51,7 +52,7 @@ Overall readiness: **Developing** (50/60)
 
 - #3 [Add JSON output mode](https://github.com/gelibing8-rgb/oss-evidence-kit/issues/3) (closed, updated 2026-06-30)
 - #2 [Add HTML report output](https://github.com/gelibing8-rgb/oss-evidence-kit/issues/2) (open, updated 2026-06-24)
-- #1 [Add GitHub Action usage example](https://github.com/gelibing8-rgb/oss-evidence-kit/issues/1) (open, updated 2026-06-24)
+- #1 [Add GitHub Action usage example](https://github.com/gelibing8-rgb/oss-evidence-kit/issues/1) (closed, updated 2026-07-30)
 
 ## Recent Pull Requests
 
@@ -59,7 +60,7 @@ No sampled items.
 
 ## Top Contributors
 
-- [gelibing8-rgb](https://github.com/gelibing8-rgb): 3 contributions
+- [gelibing8-rgb](https://github.com/gelibing8-rgb): 6 contributions
 
 ## Recommended Next Evidence
 
